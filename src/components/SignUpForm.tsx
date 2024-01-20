@@ -20,6 +20,10 @@ import toast from "react-hot-toast"
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import ImageUpload from "./ImageUpload"
+import Image from "next/image"
+import { useFormState, useFormStatus } from "react-dom"
+import { uploadImage } from "@/lib/uploadImage"
 
 
 
@@ -39,8 +43,15 @@ const formSchema = z.object({
 		message: "Password must be at least 6 characters.",
 	}),
 });
+const initialState = {
+	imageUrl: "",
+	message: "",
+	error: false
+};
 
 export function SignUpForm() {
+	const [state, formAction] = useFormState(uploadImage, initialState);
+	const { pending } = useFormStatus();
 	const router = useRouter();
 
 	// Create User
@@ -81,63 +92,76 @@ export function SignUpForm() {
 	}
 
 	return (
-		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-				<FormField
-					control={form.control}
-					name="username"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Username</FormLabel>
-							<FormControl>
-								<Input placeholder="username" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="email"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Email</FormLabel>
-							<FormControl>
-								<Input placeholder="email" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="phone"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Phone</FormLabel>
-							<FormControl>
-								<Input placeholder="01700000000" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-				<FormField
-					control={form.control}
-					name="password"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Password</FormLabel>
-							<FormControl>
-								<Input placeholder="password" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+		<>
+			<div className='flex flex-col items-center space-y-2'>
+				{state.imageUrl.length > 10 ? <Image src={state.imageUrl} alt='profile photo' className=' object-contain rounded-full' width={50} height={50} /> :
+					<>
 
-				<Button type="submit" variant={"login"} className="mt-2">Submit</Button>
-			</form>
-		</Form>
+						<form action={formAction} className='flex flex-row gap-1'>
+							<input type="file" name="image" id="image" accept='image/*' />
+							<input disabled={pending} type="submit" value="Upload" />
+						</form>
+
+					</>
+				}
+			</div>
+			<Form {...form}>
+				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+					<FormField
+						control={form.control}
+						name="username"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Username</FormLabel>
+								<FormControl>
+									<Input placeholder="username" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="email"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Email</FormLabel>
+								<FormControl>
+									<Input placeholder="email" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="phone"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Phone</FormLabel>
+								<FormControl>
+									<Input placeholder="01700000000" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="password"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Password</FormLabel>
+								<FormControl>
+									<Input placeholder="password" {...field} />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<Button type="submit" variant={"login"} className="mt-2">Submit</Button>
+				</form>
+			</Form>
+		</>
 	)
 }

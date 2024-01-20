@@ -1,3 +1,4 @@
+import ImageUpload from '@/components/ImageUpload'
 import { SignUpForm } from '@/components/SignUpForm'
 import Image from 'next/image'
 import Link from 'next/link'
