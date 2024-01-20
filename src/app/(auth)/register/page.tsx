@@ -1,3 +1,4 @@
+import { SignUpForm } from '@/components/SignUpForm'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -14,8 +15,9 @@ function Login() {
 				</h2>
 			</div>
 
-			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-				<p className="mt-10 text-center text-sm text-gray-500">
+			<div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+				<SignUpForm />
+				<p className="mt-4 text-center text-sm text-gray-500">
 					Not a member?{' '}
 					<Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
 						Sing in
