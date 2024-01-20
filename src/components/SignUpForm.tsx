@@ -93,16 +93,21 @@ export function SignUpForm() {
 
 	return (
 		<>
-			<div className='flex flex-col items-center space-y-2'>
+			<div className='flex flex-col items-center space-y-2 my-4'>
 				{state.imageUrl.length > 10 ? <Image src={state.imageUrl} alt='profile photo' className=' object-contain rounded-full' width={50} height={50} /> :
-					<>
-
-						<form action={formAction} className='flex flex-row gap-1'>
-							<input type="file" name="image" id="image" accept='image/*' />
-							<input disabled={pending} type="submit" value="Upload" />
+					<div className=" flex items-center mx-2">
+						<form action={formAction} className='flex items-center'>
+							<label className="block">
+								<span className="sr-only">Choose profile photo</span>
+							</label>
+							<input type="file" name="image" id="image" className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" accept='image/*' />
+							<Button disabled={pending} variant={"login"} type="submit">Upload</Button>
 						</form>
+						{
+							state.message && <p className={` text-sm text-center ${state.error === true ? "text-red-400" : "text-green-400"}`}>{state.message} </p>
+						}
 
-					</>
+					</div>
 				}
 			</div>
 			<Form {...form}>
