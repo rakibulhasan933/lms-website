@@ -8,7 +8,6 @@ export default function AuthLayout({
 	return (
 		<section>
 			{children}
-			<Footer />
 		</section>
 	);
 }

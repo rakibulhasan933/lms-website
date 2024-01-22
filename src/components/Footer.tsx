@@ -5,25 +5,23 @@ import { Button } from './ui/button';
 
 function Footer() {
 	return (
-		<div>
-			<footer className="flex items-center justify-between p-6 bg-gray-100 dark:bg-gray-800">
-				<div className="flex items-center gap-4">
-					<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
-						<TwitterIcon className="h-6 w-6" />
-					</Link>
-					<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
-						<FacebookIcon className="h-6 w-6" />
-					</Link>
-					<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
-						<InstagramIcon className="h-6 w-6" />
-					</Link>
-				</div>
-				<form className="flex items-center gap-2">
-					<Input className="w-48" placeholder="Enter your email" type="email" />
-					<Button>Subscribe</Button>
-				</form>
-			</footer>
-		</div>
+		<footer className="flex items-center justify-between px-6 bg-gray-100 dark:bg-gray-800">
+			<div className="flex items-center gap-4">
+				<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+					<TwitterIcon className="h-6 w-6" />
+				</Link>
+				<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+					<FacebookIcon className="h-6 w-6" />
+				</Link>
+				<Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+					<InstagramIcon className="h-6 w-6" />
+				</Link>
+			</div>
+			<form className="flex items-center gap-2">
+				<Input className="w-48" placeholder="Enter your email" type="email" />
+				<Button>Subscribe</Button>
+			</form>
+		</footer>
 	)
 }
 
