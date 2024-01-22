@@ -10,6 +10,22 @@ import Image from "next/image"
 export default function Component() {
   return (
     <div className="flex flex-col min-h-screen">
+      <header className="flex items-center justify-between p-6 bg-white dark:bg-gray-800">
+        <Link className="text-2xl font-bold text-gray-900 dark:text-gray-100" href="#">
+          LMS
+        </Link>
+        <nav className="flex gap-4">
+          <Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+            Courses
+          </Link>
+          <Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+            About
+          </Link>
+          <Link className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100" href="#">
+            Contact
+          </Link>
+        </nav>
+      </header>
       <main className="flex-1">
         <section className="w-full py-12 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
