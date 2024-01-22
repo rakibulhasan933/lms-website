@@ -3,8 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider";
 import { ContextProvider } from "@/components/ContextProvider";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
