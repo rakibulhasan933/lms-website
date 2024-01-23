@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar"
 
 
 
@@ -8,7 +9,7 @@ export default function DashboardLayout({
 }) {
 	return (
 		<section>
-			<div>Sidebar</div>
+			<Navbar />
 			{children}
 		</section>
 	)
