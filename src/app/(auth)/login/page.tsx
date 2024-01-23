@@ -1,3 +1,4 @@
+import { SignInForm } from '@/components/SignInForm';
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
@@ -16,7 +17,7 @@ function Login() {
 			</div>
 
 			<div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-
+				<SignInForm />
 				<p className="mt-10 text-center text-sm text-gray-500">
 					Not a member?{' '}
 					<Link href="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
