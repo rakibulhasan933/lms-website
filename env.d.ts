@@ -5,6 +5,6 @@ declare namespace NodeJS {
 		NEXT_AWS_S3_SECRET_ACCESS_KEY: string;
 		NEXT_AWS_S3_BUCKET_NAME: string;
 		NEXT_MUX_ACCESS_ID: string;
-		NEXT_MUX_SECRET_ACCESS_KEY: string;
+		NEXT_MUX_SECRET_ACCESS_KEY: string; 
 	}
 }
