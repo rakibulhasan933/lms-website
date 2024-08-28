@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import { uploadImage } from '@/lib/uploadImage';
 import Image from 'next/image';
 import React from 'react';
